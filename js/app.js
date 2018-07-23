@@ -32,7 +32,6 @@ var rufusDolanObj = {
 }
 
 var userImageList2 = getImageNamesFromObject(rufusDolanObj)
-console.log(userImageList2);
 console.assert(userImageList2.length === 3);
 console.assert(userImageList2[0] === "srs-photo.png");
 console.assert(userImageList2[1] === "glamour-shot.png");
@@ -40,3 +39,38 @@ console.assert(userImageList2[2] === "at-the-game.png");
 //=> ["srs-photo.png", "glamour-shot.png", "at-the-game.png"]
 
 
+
+function getFirstLetterFromFirstName(list) {
+   var newList = [];
+   for (var i = 0; i < list.length; i++) {
+      for (key in list[i]) {
+          var obj = list[i];
+          if (key === "firstName") {
+               newList.push(obj[key][0].toUpperCase());
+          }
+      }
+   }
+   return newList;
+}
+
+
+var names = [{
+  firstName: "pedro",
+  lastName: "Paramo"
+}, {
+  firstName: "chuck",
+  lastName: "Norris"
+}, {
+  firstName: "vicente",
+  lastName: "Fernandez"
+}, {
+  firstName: "electric",
+  lastName: "Blue"
+}];
+
+var getFirstLetter = getFirstLetterFromFirstName(names); 
+console.assert(getFirstLetter.length == 4);
+console.assert(getFirstLetter[0] === "P");
+// => ["P", "C", "V", "E"]
+
+console.log("Test Good");
